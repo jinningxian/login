@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
@@ -29,7 +28,8 @@ public class WebSecurityConfig {
                         .requestMatchers("/login", "/css/**", "/js/**", "/images/**").permitAll()
                         .requestMatchers("/").authenticated()
                         .requestMatchers("/home").authenticated()
-                        .requestMatchers("/admin/**").hasRole("MANAGER")
+                        .requestMatchers("/manager").hasRole("MANAGER")
+                        .requestMatchers("/health/database").permitAll()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")

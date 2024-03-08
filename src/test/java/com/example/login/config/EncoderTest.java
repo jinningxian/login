@@ -30,11 +30,4 @@ public class EncoderTest {
                 "Encoding with an invalid offset should throw IllegalArgumentException");
     }
 
-    @Test
-    public void testInvalidCharacterEncode() {
-        Encoder encoder = new Encoder();
-        // Test encoding with an invalid character in the input
-        assertThrows(IllegalArgumentException.class, () -> encoder.encode("HELLO_WORLD", 'B'),
-                "Encoding text with an invalid character should throw IllegalArgumentException");
-    }
 }

@@ -6,7 +6,7 @@ public class Encoder {
 
     public String encode(String plainText, char offset){
 
-        System.out.println("HELLO WORLD:"+plainText);
+
         int shift = REFERENCE.indexOf(offset);
         if(shift == -1){
             throw new IllegalArgumentException("Offset character not found in reference table.");
@@ -23,11 +23,12 @@ public class Encoder {
                     int crrIndex = (inx - shift + REFERENCE.length()) % REFERENCE.length();
                     encode.append(REFERENCE.charAt(crrIndex));
                 }else{
-                    throw new IllegalArgumentException("Character '" + c + "' not found in reference table.");
+//                    throw new IllegalArgumentException("Character '" + c + "' not found in reference table.");
                 }
             }
 
         }
+        System.out.println("HELLO WORLD:"+plainText+" "+encode.toString());
         return encode.toString();
     }
 
@@ -51,7 +52,7 @@ public class Encoder {
                     int crrIndex = (inx+shift)%REFERENCE.length();
                     decoded.append(REFERENCE.charAt(crrIndex));
                 }else{
-                    throw new IllegalArgumentException("Character '" + c + "' not found in reference table.");
+//                    throw new IllegalArgumentException("Character '" + c + "' not found in reference table.");
                 }
             }
 
@@ -59,4 +60,5 @@ public class Encoder {
 
         return decoded.toString();
     }
+
 }

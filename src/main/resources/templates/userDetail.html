@@ -1,0 +1,16 @@
+<!-- userDetail.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Detail</title>
+</head>
+<body>
+<h1>User Detail</h1>
+<div>
+    <p>Username: <span th:text="${user.username}"></span></p>
+    <p>First Name: <span th:text="${user.firstName}"></span></p>
+    <p>Last Name: <span th:text="${user.lastName}"></span></p>
+</div>
+</body>
+</html>

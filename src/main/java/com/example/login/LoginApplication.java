@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class })
 @EntityScan("com.example.login.model")
-
 public class LoginApplication {
 
     public static void main(String[] args) {

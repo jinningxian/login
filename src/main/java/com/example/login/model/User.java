@@ -3,6 +3,7 @@ package com.example.login.model;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.Id;
 
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -45,17 +46,10 @@ public class User {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     // Role
     public Role getRole() {
         return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 
     // First Name
@@ -63,22 +57,15 @@ public class User {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
 
     // Last Name
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+
+    public enum Role {
+        USER, MANAGER
     }
-
-
 }
 
-enum Role {
-    USER, MANAGER
-}

@@ -7,7 +7,9 @@ CREATE TABLE users(
                       role VARCHAR(50) NOT NULL,
                       first_name VARCHAR(255) NOT NULL,
                       last_name VARCHAR(255) NOT NULL
-); INSERT INTO users(
+);
+
+INSERT INTO users(
     username,
     password,
     role,
@@ -16,7 +18,7 @@ CREATE TABLE users(
 )
    VALUES(
              'manager1',
-             'password123',
+             'BGDKKN VNQKC',
              'MANAGER',
              'Tan',
              'Wei Ming'
@@ -30,7 +32,7 @@ INSERT INTO users(
 )
 VALUES(
           'manager2',
-          'password123',
+          'BGDKKN VNQKC',
           'MANAGER',
           'Siti',
           'Binti Zahara'
@@ -44,7 +46,7 @@ INSERT INTO users(
 )
 VALUES(
           'user1',
-          'password123',
+          'BGDKKN VNQKC',
           'USER',
           'Raj',
           'Sharma'
@@ -58,7 +60,7 @@ INSERT INTO users(
 )
 VALUES(
           'user2',
-          'password123',
+          'BGDKKN VNQKC',
           'USER',
           'Lim',
           'Xiu Ling'
@@ -72,7 +74,7 @@ INSERT INTO users(
 )
 VALUES(
           'user3',
-          'password123',
+          'BGDKKN VNQKC',
           'USER',
           'Mohammed',
           'Faisal Bin Yusof'
