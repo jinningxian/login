@@ -1,0 +1,28 @@
+package com.example.login.config;
+
+
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+public class CustomPasswordEncoder implements PasswordEncoder {
+
+    private final Encoder encoder;
+    private final char offset;
+
+    public CustomPasswordEncoder(char offset) {
+        this.encoder = new Encoder();
+        this.offset = offset;
+    }
+
+    @Override
+    public String encode(CharSequence rawPassword) {
+        System.out.println("CustomPasswordEncoder:"+rawPassword.toString());
+        return encoder.encode(rawPassword.toString(), offset);
+    }
+
+    @Override
+    public boolean matches(CharSequence rawPassword, String encodedPassword) {
+        String encodedRawPassword = encode(rawPassword);
+        return encodedRawPassword.equals(encodedPassword);
+    }
+}
+
