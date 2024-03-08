@@ -15,8 +15,8 @@ public class CustomPasswordEncoder implements PasswordEncoder {
 
     @Override
     public String encode(CharSequence rawPassword) {
-        System.out.println("CustomPasswordEncoder: " + rawPassword.toString());
-        System.out.println("EncodePasswordEncoder: " + encoder.encode(rawPassword.toString(), offset));
+/*        System.out.println("CustomPasswordEncoder: " + rawPassword.toString());
+        System.out.println("EncodePasswordEncoder: " + encoder.encode(rawPassword.toString(), offset));*/
         return encoder.encode(rawPassword.toString(), offset);
     }
 
