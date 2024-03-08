@@ -17,11 +17,9 @@ public class LoginController {
     private UserRepository userRepository;
     @GetMapping("/home")
     public String homePage(Model model) {
-        // Get authenticated user's username
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
 
-        // Pass the username to the home page
         User user = userRepository.findByUsername(username);
         model.addAttribute("user", user);
         boolean isManager = user.getRole().equals(User.Role.MANAGER);

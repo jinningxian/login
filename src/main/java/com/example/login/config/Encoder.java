@@ -22,13 +22,14 @@ public class Encoder {
                 if(inx != -1){
                     int crrIndex = (inx - shift + REFERENCE.length()) % REFERENCE.length();
                     encode.append(REFERENCE.charAt(crrIndex));
-                }else{
-//                    throw new IllegalArgumentException("Character '" + c + "' not found in reference table.");
                 }
+/*                else{
+                    throw new IllegalArgumentException("Character '" + c + "' not found in reference table.");
+                }*/
             }
 
         }
-        System.out.println("HELLO WORLD:"+plainText+" "+encode.toString());
+//        System.out.println("HELLO WORLD:"+plainText+" "+encode.toString());
         return encode.toString();
     }
 
@@ -51,9 +52,10 @@ public class Encoder {
                 if(inx != -1){
                     int crrIndex = (inx+shift)%REFERENCE.length();
                     decoded.append(REFERENCE.charAt(crrIndex));
-                }else{
-//                    throw new IllegalArgumentException("Character '" + c + "' not found in reference table.");
                 }
+/*                else{
+                    throw new IllegalArgumentException("Character '" + c + "' not found in reference table.");
+                }*/
             }
 
         }
