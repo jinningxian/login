@@ -21,10 +21,11 @@ public class LoginController {
         String username = authentication.getName();
 
         User user = userRepository.findByUsername(username);
-        model.addAttribute("user", user);
-        boolean isManager = user.getRole().equals(User.Role.MANAGER);
-
-        model.addAttribute("isManager", isManager);
+        if (user != null) {
+            model.addAttribute("user", user);
+            boolean isManager = user.getRole().equals(User.Role.MANAGER);
+            model.addAttribute("isManager", isManager);
+        }
         return "home";
     }
 

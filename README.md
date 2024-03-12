@@ -51,3 +51,14 @@ This project is a Java-based web application designed for user authentication an
     - `user.sql`: SQL script for initial database setup.
 - `src/test/`: Unit and integration tests.
 
+
+## For Testing purpose
+Manager Account 
+- `username`: manager1 `password`: HELLO WORLD
+- `username`: manager2 `password`: HELLO WORLD
+
+Normal Account 
+- `username`: user1 `password`: HELLO WORLD
+- `username`: user2 `password`: HELLO WORLD
+- `username`: user3 `password`: HELLO WORLD
+

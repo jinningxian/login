@@ -54,6 +54,9 @@
             <div class="card">
                 <h5 class="card-header text-center">Login</h5>
                 <div class="card-body">
+                    <div th:if="${param.error}" class="alert alert-danger" role="alert">
+                        Invalid userid or password.
+                    </div>
                     <form th:action="@{/login}" method="post">
                         <div class="form-group mb-3">
                             <label for="username">Username</label>
@@ -65,9 +68,6 @@
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Login</button>
                     </form>
-                </div>
-                <div class="card-footer text-muted text-center">
-                    <a href="/forgot-password">Forgot Password?</a> | <a href="/register">Register</a>
                 </div>
             </div>
         </div>

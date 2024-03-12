@@ -33,11 +33,12 @@ public class WebSecurityConfig {
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
+                        .failureUrl("/login?error")
                         .defaultSuccessUrl("/home", true)
                         .permitAll()
                 )
                 .logout(logout -> logout
-                        .logoutSuccessUrl("/login")
+                        .logoutSuccessUrl("/login?logout")
                         .permitAll()
                 )
                 .rememberMe(remember -> remember
