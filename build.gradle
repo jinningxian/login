@@ -1,11 +1,28 @@
+buildscript {
+	configurations.classpath {
+		resolutionStrategy {
+			force 'com.fasterxml.jackson.core:jackson-core:2.21.7'
+			force 'com.fasterxml.jackson.core:jackson-databind:2.21.7'
+			force 'org.apache.commons:commons-lang3:3.18.0'
+			force 'org.apache.httpcomponents.client5:httpclient5:5.6.3'
+			force 'org.apache.httpcomponents.core5:httpcore5:5.4.3'
+			force 'org.apache.httpcomponents.core5:httpcore5-h2:5.4.3'
+		}
+	}
+}
+
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.2.3'
+	id 'org.springframework.boot' version '3.5.16'
 	id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = 'com.example'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2-SNAPSHOT'
+
+ext['jackson-bom.version'] = '2.21.7'
+ext['tomcat.version'] = '10.1.60'
+ext['log4j2.version'] = '2.26.1'
 
 java {
 	sourceCompatibility = '17'
@@ -21,7 +38,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
-	implementation 'mysql:mysql-connector-java:8.0.29'
+	runtimeOnly 'com.mysql:mysql-connector-j'
 
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
