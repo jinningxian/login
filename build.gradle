@@ -1,28 +1,29 @@
 buildscript {
+	// The Spring Boot 4.1.1 Gradle plugin brings Jackson 3.1.5 and commons-lang3 3.16.0 onto the build
+	// classpath; force patched releases (GHSA-wv8q-qhhj-9h54, GHSA-j288-q9x7-2f5v and related).
 	configurations.classpath {
 		resolutionStrategy {
-			force 'com.fasterxml.jackson.core:jackson-core:2.21.7'
-			force 'com.fasterxml.jackson.core:jackson-databind:2.21.7'
-			force 'org.apache.commons:commons-lang3:3.18.0'
-			force 'org.apache.httpcomponents.client5:httpclient5:5.6.3'
-			force 'org.apache.httpcomponents.core5:httpcore5:5.4.3'
-			force 'org.apache.httpcomponents.core5:httpcore5-h2:5.4.3'
+			force 'tools.jackson.core:jackson-core:3.1.7'
+			force 'tools.jackson.core:jackson-databind:3.1.7'
+			force 'org.apache.commons:commons-lang3:3.21.0'
 		}
 	}
 }
 
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.5.16'
-	id 'io.spring.dependency-management' version '1.1.4'
+	id 'org.springframework.boot' version '4.1.1'
+	id 'io.spring.dependency-management' version '1.1.7'
 }
 
 group = 'com.example'
-version = '0.0.2-SNAPSHOT'
+version = '0.0.3-SNAPSHOT'
 
-ext['jackson-bom.version'] = '2.21.7'
-ext['tomcat.version'] = '10.1.60'
-ext['log4j2.version'] = '2.26.1'
+// Patched releases ahead of the Spring Boot 4.1.1 BOM (Tomcat GHSA-9xv2-5v5q-p794 and related,
+// Jackson GHSA-wv8q-qhhj-9h54 and related). Drop once a Boot release ships these or newer.
+ext['tomcat.version'] = '11.0.26'
+ext['jackson-bom.version'] = '3.1.7'
+ext['jackson-2-bom.version'] = '2.21.7'
 
 java {
 	sourceCompatibility = '17'
@@ -36,13 +37,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.security:spring-security-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-security-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
